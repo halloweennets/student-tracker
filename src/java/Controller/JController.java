@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author aefilms
  */
-@WebServlet(name = "JController", urlPatterns = {"/JController"})
+@WebServlet(name = "JController", urlPatterns = {"/jp.do"})
 public class JController extends HttpServlet {
 
     /**
