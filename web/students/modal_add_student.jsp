@@ -16,7 +16,7 @@
                                             <!--begin::Modal header-->
                                             <div class="modal-header" id="kt_modal_add_customer_header">
                                                 <!--begin::Modal title-->
-                                                <h2 class="fw-bold">Add a Customer</h2>
+                                                <h2 class="fw-bold">Add a Student</h2>
                                                 <!--end::Modal title-->
                                                 <!--begin::Close-->
                                                 <div id="kt_modal_add_customer_close" class="btn btn-icon btn-sm btn-active-icon-primary">
@@ -35,10 +35,10 @@
                                                     <!--begin::Input group-->
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
-                                                        <label class="required fs-6 fw-semibold mb-2">Name</label>
+                                                        <label class="required fs-6 fw-semibold mb-2">Full Name</label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Sean Bean" />
+                                                        <input type="text" class="form-control form-control-solid" placeholder="Full Name" name="name" value="" />
                                                         <!--end::Input-->
                                                     </div>
                                                     <!--end::Input group-->
@@ -57,97 +57,71 @@
                                                         </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="email" class="form-control form-control-solid" placeholder="" name="email" value="sean@dellito.com" />
+                                                        <input type="email" class="form-control form-control-solid" placeholder="" name="email" value="youremail@email.com" />
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    
+                                                     <!--begin::Input group-->
+                                                    <div class="fv-row mb-7">
+                                                        <!--begin::Label-->
+                                                        <label class="required fs-6 fw-semibold mb-2">Age</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                            <select name="age" aria-label="Select Age" data-control="select2" data-placeholder="Select Age..." data-dropdown-parent="#kt_modal_add_customer" class="form-select form-select-solid fw-bold">
+                                                                <option value="">Select Age...</option>
+                                                                <option value="AF">18</option>
+                                                                <option value="AX">19</option>
+                                                                <option value="AL">20</option>
+                                                                <option value="DZ">21</option>
+                                                                <option value="AS">22</option>
+                                                                <option value="AD">23</option>
+                                                                <option value="AO">24</option>
+                                                                <option value="AI">25</option>
+                                                                <option value="AG">26</option>
+                                                                <option value="AR">27</option>
+                                                                <option value="AM">28</option>
+                                                                <option value="AW">29</option>
+                                                                <option value="AU">30</option>
+                                                                
+                                                            </select>
+                                                            <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    
+                                                     <!--begin::Input group-->
+                                                    <div class="fv-row mb-7">
+                                                        <!--begin::Label-->
+                                                        <label class="required fs-6 fw-semibold mb-2">Phone Number</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="text" class="form-control form-control-solid" placeholder="Phone Number" name="name" value="" />
                                                         <!--end::Input-->
                                                     </div>
                                                     <!--end::Input group-->
                                                     <!--begin::Input group-->
                                                     <div class="fv-row mb-15">
                                                         <!--begin::Label-->
-                                                        <label class="fs-6 fw-semibold mb-2">Description</label>
+                                                        <label class="required fs-6 fw-semibold mb-2">Gender</label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="text" class="form-control form-control-solid" placeholder="" name="description" />
+                                                        <input type="text" class="form-control form-control-solid" placeholder="Gender" name="description" />
                                                         <!--end::Input-->
                                                     </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Billing toggle-->
-                                                    <div class="fw-bold fs-3 rotate collapsible mb-7" data-bs-toggle="collapse" href="#kt_modal_add_customer_billing_info" role="button" aria-expanded="false" aria-controls="kt_customer_view_details">Shipping Information
-                                                        <span class="ms-2 rotate-180">
-                                                            <i class="ki-duotone ki-down fs-3"></i>
-                                                        </span></div>
-                                                    <!--end::Billing toggle-->
-                                                    <!--begin::Billing form-->
-                                                    <div id="kt_modal_add_customer_billing_info" class="collapse show">
-                                                        <!--begin::Input group-->
-                                                        <div class="d-flex flex-column mb-7 fv-row">
-                                                            <!--begin::Label-->
-                                                            <label class="required fs-6 fw-semibold mb-2">Address Line 1</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Input-->
-                                                            <input class="form-control form-control-solid" placeholder="" name="address1" value="101, Collins Street" />
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="d-flex flex-column mb-7 fv-row">
-                                                            <!--begin::Label-->
-                                                            <label class="fs-6 fw-semibold mb-2">Address Line 2</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Input-->
-                                                            <input class="form-control form-control-solid" placeholder="" name="address2" value="" />
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="d-flex flex-column mb-7 fv-row">
-                                                            <!--begin::Label-->
-                                                            <label class="required fs-6 fw-semibold mb-2">Town</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Input-->
-                                                            <input class="form-control form-control-solid" placeholder="" name="city" value="Melbourne" />
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="row g-9 mb-7">
-                                                            <!--begin::Col-->
-                                                            <div class="col-md-6 fv-row">
-                                                                <!--begin::Label-->
-                                                                <label class="required fs-6 fw-semibold mb-2">State / Province</label>
-                                                                <!--end::Label-->
-                                                                <!--begin::Input-->
-                                                                <input class="form-control form-control-solid" placeholder="" name="state" value="Victoria" />
-                                                                <!--end::Input-->
-                                                            </div>
-                                                            <!--end::Col-->
-                                                            <!--begin::Col-->
-                                                            <div class="col-md-6 fv-row">
-                                                                <!--begin::Label-->
-                                                                <label class="required fs-6 fw-semibold mb-2">Post Code</label>
-                                                                <!--end::Label-->
-                                                                <!--begin::Input-->
-                                                                <input class="form-control form-control-solid" placeholder="" name="postcode" value="3000" />
-                                                                <!--end::Input-->
-                                                            </div>
-                                                            <!--end::Col-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="d-flex flex-column mb-7 fv-row">
-                                                            <!--begin::Label-->
-                                                            <label class="fs-6 fw-semibold mb-2">
-                                                                <span class="required">Country</span>
-                                                                <span class="ms-1" data-bs-toggle="tooltip" title="Country of origination">
-                                                                    <i class="ki-duotone ki-information fs-7">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                        <span class="path3"></span>
-                                                                    </i>
-                                                                </span>
-                                                            </label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Input-->
+                                                    <div class="fv-row mb-7">
+                                                        <!--begin::Label-->
+                                                        <label class="fs-6 fw-semibold mb-2">
+                                                            <span class="required">Country</span>
+                                                            <span class="ms-1" data-bs-toggle="tooltip" title="Country">
+                                                                <i class="ki-duotone ki-information fs-7">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                    <span class="path3"></span>
+                                                                </i>
+                                                            </span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                    <!--begin::Input-->
                                                             <select name="country" aria-label="Select a Country" data-control="select2" data-placeholder="Select a Country..." data-dropdown-parent="#kt_modal_add_customer" class="form-select form-select-solid fw-bold">
                                                                 <option value="">Select a Country...</option>
                                                                 <option value="AF">Afghanistan</option>
@@ -376,38 +350,9 @@
                                                                 <option value="ZW">Zimbabwe</option>
                                                             </select>
                                                             <!--end::Input-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="fv-row mb-7">
-                                                            <!--begin::Wrapper-->
-                                                            <div class="d-flex flex-stack">
-                                                                <!--begin::Label-->
-                                                                <div class="me-5">
-                                                                    <!--begin::Label-->
-                                                                    <label class="fs-6 fw-semibold">Use as a billing adderess?</label>
-                                                                    <!--end::Label-->
-                                                                    <!--begin::Input-->
-                                                                    <div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
-                                                                    <!--end::Input-->
-                                                                </div>
-                                                                <!--end::Label-->
-                                                                <!--begin::Switch-->
-                                                                <label class="form-check form-switch form-check-custom form-check-solid">
-                                                                    <!--begin::Input-->
-                                                                    <input class="form-check-input" name="billing" type="checkbox" value="1" id="kt_modal_add_customer_billing" checked="checked" />
-                                                                    <!--end::Input-->
-                                                                    <!--begin::Label-->
-                                                                    <span class="form-check-label fw-semibold text-muted" for="kt_modal_add_customer_billing">Yes</span>
-                                                                    <!--end::Label-->
-                                                                </label>
-                                                                <!--end::Switch-->
                                                             </div>
-                                                            <!--begin::Wrapper-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                    </div>
-                                                    <!--end::Billing form-->
+                                                    <!--end::Input group-->
+                                                    
                                                 </div>
                                                 <!--end::Scroll-->
                                             </div>
