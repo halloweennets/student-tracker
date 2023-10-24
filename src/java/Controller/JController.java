@@ -6,11 +6,11 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -33,14 +33,48 @@ public class JController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+
             String action = request.getParameter("action");
 
             if (action.equalsIgnoreCase("dashboard")) {
-                request.getRequestDispatcher("students/index.jsp").forward(request, response);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            } else if (action.equalsIgnoreCase("student-form")) {
+                request.getRequestDispatcher("/students/student_form.jsp").forward(request, response);
             } else if (action.equalsIgnoreCase("student-list")) {
                 request.getRequestDispatcher("/students/students_list.jsp").forward(request, response);
             } else if (action.equalsIgnoreCase("student")) {
                 request.getRequestDispatcher("/students/students.jsp").forward(request, response);
+            } else if (action.equalsIgnoreCase("process-student")) {
+                request.getRequestDispatcher("/ProcessStudentServlet").forward(request, response);
+            } else if (action.equalsIgnoreCase("instructor-form")) {
+                request.getRequestDispatcher("/instructors/instructor_form.jsp").forward(request, response);
+            } else if (action.equalsIgnoreCase("instructor-list")) {
+                request.getRequestDispatcher("/instructors/instructors_list.jsp").forward(request, response);
+            } else if (action.equalsIgnoreCase("instructor")) {
+                request.getRequestDispatcher("/instructors/instructors.jsp").forward(request, response);
+            }else if (action.equalsIgnoreCase("process-instructor")) {
+                request.getRequestDispatcher("/ProcessInstructorServlet").forward(request, response);
+            }
+            else if (action.equalsIgnoreCase("course-form")) {
+                request.getRequestDispatcher("/courses/course_form.jsp").forward(request, response);
+            } else if (action.equalsIgnoreCase("course-list")) {
+                request.getRequestDispatcher("/courses/course_list.jsp").forward(request, response);
+            } else if (action.equalsIgnoreCase("process-course")) {
+                request.getRequestDispatcher("/ProcessCourseServlet").forward(request, response);
+            }
+            else if (action.equalsIgnoreCase("exam-form")) {
+                request.getRequestDispatcher("/exams/exam_form.jsp").forward(request, response);
+            } else if (action.equalsIgnoreCase("exam-list")) {
+                request.getRequestDispatcher("/exams/exam_list.jsp").forward(request, response);
+            } else if (action.equalsIgnoreCase("process-exam")) {
+                request.getRequestDispatcher("/ProcessExamServlet").forward(request, response);
+            }
+            else if (action.equalsIgnoreCase("reg-form")) {
+                request.getRequestDispatcher("/regs/reg_form.jsp").forward(request, response);
+            } else if (action.equalsIgnoreCase("reg-list")) {
+                request.getRequestDispatcher("/regs/reg_list.jsp").forward(request, response);
+            } else if (action.equalsIgnoreCase("process-reg")) {
+                request.getRequestDispatcher("/ProcessRegServlet").forward(request, response);
             }
         }
     }

@@ -34,7 +34,7 @@
     </head>
     <!--end::Head-->
     <!--begin::Body-->
-    <body id="kt_body" class="header-fixed">
+    <body id="kt_body" class="header-fixed ">
         <!--begin::Theme mode setup on page load-->
         <script>var defaultThemeMode = "light";
             var themeMode;
@@ -62,31 +62,67 @@
 
                     <jsp:include page="../main_header.jsp" flush="true"/>
 
+
+
                     <!--begin::Content-->
                     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+
+
                         <!--begin::Container-->
                         <div class="container-xxl" id="kt_content_container">
+
+                            <%
+                                if(request.getAttribute("errorMsg")!=null){
+                                    String errorMsg = String.valueOf(request.getAttribute("errorMsg"));
+                                    out.print("<div class='alert alert-danger' role='alert'> "+errorMsg+" </div>");
+                                }else{
+                                    out.print("");
+                                }
+                            %>
+                            
+                            
+                            
+                            <%
+                                //if(request.getAttribute("errorMsg")!=null){
+                                    //String errorMsg = String.valueOf(request.getAttribute("errorMsg"));
+                            %>
+                                <!--When displaying errorMsg using the method, inject the code with a jsp inject expression tag-->
+                                <!--<div class="alert alert-danger" role='alert'> errorMsg  </div>-->
+                            <%
+                                //}else{
+                                    //out.print("");
+                                //}
+                            %>
+
                             <!--begin::Card-->
                             <div class="card">
+
+
                                 <!--begin::Card body-->
                                 <div class="card-body p-0">
+
+
+
                                     <!--begin::Wrapper-->
                                     <div class="card-px text-center py-20 my-10">
+
+
+
                                         <!--begin::Title-->
-                                        <h2 class="fs-2x fw-bold mb-10">Welcome to Customers App</h2>
+                                        <h2 class="fs-2x fw-bold mb-10">Welcome to Student App</h2>
                                         <!--end::Title-->
                                         <!--begin::Description-->
-                                        <p class="text-gray-400 fs-4 fw-semibold mb-10">There are no customers added yet.
-                                            <br />Kickstart your CRM by adding a your first customer</p>
+                                        <p class="text-gray-400 fs-4 fw-semibold mb-10">There are no Student added yet.
+                                            <br />Kickstart your CRM by adding a your first Student</p>
                                         <!--end::Description-->
                                         <!--begin::Action-->
-                                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer">Add a Student</a>
+                                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer">Add Student</a>
                                         <!--end::Action-->
                                     </div>
                                     <!--end::Wrapper-->
                                     <!--begin::Illustration-->
                                     <div class="text-center px-4">
-                                        <img class="mw-100 mh-300px" alt="" src="assets/media/illustrations/dozzy-1/2.png" />
+                                        <img class="mw-100 mh-300px" alt="" src="assets/media/illustrations/dozzy-1/2.png"/>
                                     </div>
                                     <!--end::Illustration-->
                                 </div>
@@ -94,15 +130,15 @@
                             </div>
                             <!--end::Card-->
                             <!--begin::Modals-->
-                            <!--begin::Modal - Customers - Add-->
-                           
-                            <jsp:include  page="modal_add_student.jsp" flush="true"  />
-                            
-                            <!--end::Modal - Customers - Add-->
+
+                            <jsp:include page="modal_add_student.jsp" flush="true"/>
+
                             <!--end::Modals-->
                         </div>
                         <!--end::Container-->
                     </div>
+
+
                     <!--end::Content-->
 
                     <jsp:include page="../main_footer.jsp" flush="true"/>
@@ -126,17 +162,17 @@
         <!--end::Global Javascript Bundle-->
         <!--begin::Vendors Javascript(used for this page only)-->
         <script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-        <script src=".https://cdn.amcharts.com/lib/5/index.js"></script>
-        <script src=".https://cdn.amcharts.com/lib/5/xy.js"></script>
-        <script src=".https://cdn.amcharts.com/lib/5/percent.js"></script>
-        <script src=".https://cdn.amcharts.com/lib/5/radar.js"></script>
-        <script src=".https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-        <script src=".https://cdn.amcharts.com/lib/5/map.js"></script>
-        <script src=".https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-        <script src=".https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
-        <script src=".https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
-        <script src=".https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
-        <script src=".https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
         <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
         <!--end::Vendors Javascript-->
         <!--begin::Custom Javascript(used for this page only)-->
@@ -144,11 +180,12 @@
         <script src="assets/js/custom/widgets.js"></script>
         <script src="assets/js/custom/apps/chat/chat.js"></script>
         <script src="assets/js/custom/utilities/modals/users-search.js"></script>
-        
-        <script src="assets/js/custom/apps/customers/list/export.js"></script>
-		<script src="assets/js/custom/apps/customers/list/list.js"></script>
-		<script src="assets/js/custom/apps/customers/add.js"></script>
         <!--end::Custom Javascript-->
+        <!--begin::Custom Javascript(used for this page only)-->
+        <script src="assets/js/custom/apps/customers/list/export.js"></script>
+        <script src="assets/js/custom/apps/customers/list/list.js"></script>
+        <script src="assets/js/custom/apps/customers/add.js"></script>
+
         <!--end::Javascript-->
     </body>
 

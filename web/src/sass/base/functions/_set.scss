@@ -1,7 +1,7 @@
 /// Deep set function to set a value in nested maps
 
 @function set($map, $keys, $value) {
-	$maps: ($map);
+	$maps: ($map,);
 	$result: null;
 	
 	// If the last key is a map already

@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package connection;
+package Connection;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -36,46 +37,122 @@ public class SQLConnection {
                 throw new FileNotFoundException("Property File not Found");
             }
             
-            String serverconnectionString = prop.getProperty("serverConnectionString");
-            String serverdriver = prop.getProperty("serverConnectionDriver");
-            String serverPwd = prop.getProperty("serverPassword");
+            String connectionString = prop.getProperty("mysqlConnectionString");
+            String driver = prop.getProperty("mysqlConnectionDriver");
+            String password = prop.getProperty("mysqlPassword");
+            String username = prop.getProperty("mysqlUsername");
             
-            String username = prop.getProperty("username");
-            
-            
-            String driver = serverdriver;
-            String connectionString = serverconnectionString;
-            String password = serverPwd;
             
             Class.forName(driver).newInstance();
+            
+        
             connect = DriverManager.getConnection(connectionString, username, password);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SQLConnection.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(SQLConnection.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(SQLConnection.class.getName()).log(Level.SEVERE, null, ex);
+            
+            
+        } catch (ClassNotFoundException | SQLException | IOException | IllegalAccessException | InstantiationException ex) {
+            Logger.getLogger(SQLConnection.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
         }
+        
         return connect;
     }
+    
     
     public void testConnection() {
 
         ResultSet rsObj = null;
         Connection connObj = null;
         PreparedStatement pstmtObj = null;
+       
 
         try {
 
-            // Performing Database Operation!
             System.out.println("\n=====Making A New Connection Object For Db Transaction=====\n");
+            
             connObj = this.getNewConnection();
 
             pstmtObj = connObj.prepareStatement("SELECT * FROM students");
+            
             rsObj = pstmtObj.executeQuery();
+            
             while (rsObj.next()) {
-                System.out.println("Username: " + rsObj.getString("user_id"));
+                System.out.println("Username: " + rsObj.getString("student_id"));
             }
+            
+            System.out.println("\n=====Releasing Connection Object To Pool=====\n");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLConnection.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+        } finally {
+            try {
+                // Closing ResultSet Object
+                if (rsObj != null) {
+                    rsObj.close();
+                }
+                // Closing PreparedStatement Object
+                if (pstmtObj != null) {
+                    pstmtObj.close();
+                }
+                // Closing Connection Object
+                if (connObj != null) {
+                    connObj.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(SQLConnection.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+            }
+        }
+        
+        
+        try {
+
+            System.out.println("\n=====Making A New Connection Object For Db Transaction=====\n");
+            
+            connObj = this.getNewConnection();
+
+            pstmtObj = connObj.prepareStatement("SELECT * FROM instructors");
+            
+            rsObj = pstmtObj.executeQuery();
+            
+            while (rsObj.next()) {
+                System.out.println("Username: " + rsObj.getString("instructor_id"));
+            }
+            
+            System.out.println("\n=====Releasing Connection Object To Pool=====\n");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLConnection.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+        } finally {
+            try {
+                // Closing ResultSet Object
+                if (rsObj != null) {
+                    rsObj.close();
+                }
+                // Closing PreparedStatement Object
+                if (pstmtObj != null) {
+                    pstmtObj.close();
+                }
+                // Closing Connection Object
+                if (connObj != null) {
+                    connObj.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(SQLConnection.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+            }
+        }
+        
+        try {
+
+            System.out.println("\n=====Making A New Connection Object For Db Transaction=====\n");
+            
+            connObj = this.getNewConnection();
+
+            pstmtObj = connObj.prepareStatement("SELECT * FROM courses");
+            
+            rsObj = pstmtObj.executeQuery();
+            
+            while (rsObj.next()) {
+                System.out.println("Username: " + rsObj.getString("course_id"));
+            }
+            
             System.out.println("\n=====Releasing Connection Object To Pool=====\n");
 
         } catch (SQLException ex) {
@@ -100,6 +177,7 @@ public class SQLConnection {
         }
     }
 
+    
     public static void main(String[] args) {
         
         SQLConnection conn = new SQLConnection();
